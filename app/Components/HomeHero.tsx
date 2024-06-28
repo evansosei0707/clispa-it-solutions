@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import heroImage from "@/public/clispa_hero_image.png";
+import Link from "next/link";
 import arrowUnderHero from "@/public/arrow_hero_image.png";
 import playImage from "@/public/play_image.png";
 
@@ -17,12 +18,12 @@ export default function HomeHero() {
           consectetur, adipisci velit, sed
         </p>
         <div className=" flex-row-center gap-8">
-          <a
-            href="#"
+          <Link
+            href="/about"
             className="bg-primary-gradient text-white font-semibold py-[10px] px-[27px] text-[20px] leading-[26px] rounded-[25px] tracking-tight"
           >
             Learn more
-          </a>
+          </Link>
           <div className="flex-row-center gap-2">
             <Image
               src={playImage}

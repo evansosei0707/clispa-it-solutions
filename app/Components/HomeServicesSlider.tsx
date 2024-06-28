@@ -67,7 +67,7 @@ export default function HomeServicesSlider() {
             </div>
             <div className=" font-Raj flex-col-center pt-5 pb-8 gap-4">
               <Link
-                href="/"
+                href="/services/1"
                 className=" text-[24px] leading-[31px] text-mainColor whitespace-nowrap font-bold"
               >
                 {item.title}

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import afterHeroImage from "@/public/elimate_image.png";
 import triangle from "@/public/tri-tag.png";
 import glow from "@/public/glow.png";
@@ -63,12 +64,12 @@ export default function AfterHero() {
             </li>
           </div>
         </ul>
-        <a
-          href="#"
+        <Link
+          href="/contact"
           className="bg-primary-gradient text-white font-semibold py-[10px] px-[27px] text-[20px] leading-[26px] rounded-[25px] tracking-tight"
         >
           Lets talk
-        </a>
+        </Link>
       </div>
     </section>
   );

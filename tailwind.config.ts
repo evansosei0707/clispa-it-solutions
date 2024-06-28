@@ -33,6 +33,7 @@ const config: Config = {
         mainColor: "#023e8a",
         mainColor2: "#0077b6",
         customBlack: "#0c0c0c",
+        lightColor2: "#86c4e0",
         lightColor: "#e7fbff",
       },
     },

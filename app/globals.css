@@ -387,6 +387,10 @@
   --lightColor: "#e7fbff";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url(../public/web_bg.png);
   background-repeat: no-repeat;
@@ -594,3 +598,7 @@ body {
 /* .slick-list {
   margin: 0 -27px;
 } */
+
+.image_rotate {
+  transform: scaleX(-1) scale(0.9);
+}

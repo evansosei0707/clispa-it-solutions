@@ -1,16 +1,26 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Logo from "@/public/clispa-logo.png";
 import { navLinks } from "../lib/helper";
 import { CgMenuLeft } from "react-icons/cg";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathName = usePathname();
+  console.log(pathName);
+
   return (
-    <header className="w-[95%] md:w-[90%] mx-auto flex-col-center items-center ">
+    <header
+      className={` ${
+        pathName !== "/" && " "
+      } px-8 md:px-11 mx-auto flex-col-center w-full items-center `}
+    >
       {/* access section bar on header top */}
-      <div className=" w-full mx-auto flex font-liv justify-between py-3 border-b border-[#ade8f4] items-center ">
-        <div className="md:flex-row flex md:justify-start md:items-center flex-col items-start justify-center gap-2  md:gap-4 ">
+      {/* <div className=" w-full mx-auto flex font-liv justify-between py-3 border-b border-[#ade8f4] items-center "> */}
+      {/* <div className="md:flex-row flex md:justify-start md:items-center flex-col items-start justify-center gap-2  md:gap-4 ">
           <a
             href="mailto:info@clispa.com"
             className="  text-[#48cae4] hover:text-[#0077b6] no-underline"
@@ -39,8 +49,8 @@ export default function Header() {
           >
             Register
           </Link>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <nav className=" flex w-full items-center py-4 pt-8 justify-between">
         <div className=" block">
           <Link href="/" className=" no-underline">
@@ -65,7 +75,7 @@ export default function Header() {
           </div>
 
           <a
-            href="/quote"
+            href="/contact#getQuote"
             className=" bg-primary-gradient hidden min-[800px]:block text-white font-semibold py-[7px] px-[30px] text-[18px] leading-[24px] rounded-[20px] tracking-tight"
           >
             Get a quote

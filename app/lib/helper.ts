@@ -28,10 +28,6 @@ export const navLinks: navLinksType[] = [
     linkName: "Projects",
   },
   {
-    link: "/blog",
-    linkName: "Blogs",
-  },
-  {
     link: "/contact",
     linkName: "Contact",
   },
@@ -40,36 +36,42 @@ export const navLinks: navLinksType[] = [
 export const services = [
   {
     title: "IT Management",
+    href: "it-management",
     image: ItManagement,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",
   },
   {
     title: "Database Security",
+    href: "database-security",
     image: DataBaseSecurity,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",
   },
   {
     title: "Analytics Solutions",
+    href: "analytics-solutions",
     image: Analytics,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",
   },
   {
     title: "Web Development",
+    href: "web-development",
     image: WebDev,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",
   },
   {
     title: "Software Development",
+    href: "software-development",
     image: SoftwareDev,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",
   },
   {
     title: "IT Consultancy",
+    href: "it-consultancy",
     image: ItConsultancy,
     description:
       "Neque porro quisquam est qui most dolorem quia enough impedit same quo minus quod and maxime",

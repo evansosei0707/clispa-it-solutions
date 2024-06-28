@@ -10,7 +10,7 @@ import BlogSection from "./Components/BlogSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col gap-12 w-full items-center justify-center">
+    <main className="flex min-h-screen flex-col gap-12 w-full items-center justify-start">
       <HomeHero />
       <AfterHero />
       <WhyChooseUs />

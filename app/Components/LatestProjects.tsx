@@ -16,7 +16,7 @@ export default function LatestProjects() {
             Neque porro quisquam est, qui dolorem ipsum quiactetur, adipisci
             velit, sed eligendi option cumque
           </p>
-          <Link href="/services" className="">
+          <Link href="/projects" className="">
             <HiArrowRight color="#023e8a" fontSize={35} />
           </Link>
         </div>
@@ -37,7 +37,7 @@ export default function LatestProjects() {
               />
               <div className=" absolute project_overlay ease-in-out transition-all duration-500 top-0 right-0 left-0 bottom-0 flex flex-col p-[25px] items-center justify-center text-center bg-mainColor2">
                 <Link
-                  href="/"
+                  href="/projects/1"
                   className=" project_link text-xl font-bold font-Raj text-white no-underline "
                 >
                   {item.title}
@@ -47,7 +47,7 @@ export default function LatestProjects() {
                 </p>
                 <div className=" relative w-full">
                   <Link
-                    href="/"
+                    href="/projects/1"
                     className=" project-icon text-white top-0 absolute left-auto right-0 bottom-0 "
                   >
                     <HiArrowRight fontSize={35} />
