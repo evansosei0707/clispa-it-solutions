@@ -4,8 +4,6 @@ import afterHeroImage from "@/public/elimate_image.png";
 import triangle from "@/public/tri-tag.png";
 import glow from "@/public/glow.png";
 
-import { FaRegCircle } from "react-icons/fa";
-
 export default function ProjectsBlockTwo() {
   return (
     <section className=" flex font-Raj md:px-20 min-[800px]:justify-between flex-col justify-center items-center gap-10 md:gap-6 min-[800px]:flex-row-reverse w-full px-5 ">

@@ -8,7 +8,7 @@ import ClientReview from "@/app/Components/ClientReview";
 
 export default function page() {
   return (
-    <main className="flex min-h-screen flex-col  w-full items-center bg-white gap-12 mb-28 justify-start">
+    <main className="flex min-h-screen flex-col  w-full items-center bg-white gap-8 mb-28 justify-start">
       <GlobalHero
         titleStart="Project"
         titleEnd="Detail"

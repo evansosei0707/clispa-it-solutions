@@ -8,7 +8,7 @@ import CountUpStats from "./CountUp";
 
 export default function HomeStatistics() {
   return (
-    <section className=" px-8 md:px-12 lg:px-20 gap-14 lg:gap-20 my-20 w-full flex-col-center">
+    <section className=" px-6 md:px-12 lg:px-20 gap-14 lg:gap-20 my-20 w-full flex-col-center">
       {/* Statistics Here! */}
       <CountUpStats />
       {/* How we work */}

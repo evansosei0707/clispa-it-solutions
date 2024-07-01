@@ -23,7 +23,7 @@ export default function AfterAboutHero() {
         <div className=" absolute z-10 right-0 top-6">
           <Image src={message1} width={136} height={114} alt="glow" />
         </div>
-        <div className=" absolute z-10 left-3 top-2 ">
+        <div className=" absolute z-10 left-3 max-[600px]:-left-2 top-2 ">
           <Image src={message2} width={123} height={107} alt="triangle tag" />
         </div>
       </div>

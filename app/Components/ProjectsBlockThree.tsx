@@ -6,7 +6,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 
 export default function ProjectsBlockThree() {
   return (
-    <section className=" w-full flex-col-x-start-only bg-white py-10 pt-14  px-6 gap-6 md:px-12 lg:px-16">
+    <section className=" w-full flex-col-x-start-only  bg-white py-10 pt-14  px-6 gap-6 md:px-12 lg:px-16">
       <div className="flex-col-x-start-only gap-5 w-full ">
         <h2 className=" md:text-[42px] text-[30px] leading-[32px] md:leading-[45px] text-mainColor font-bold">
           Project Result & Benefits of Project
@@ -35,8 +35,8 @@ export default function ProjectsBlockThree() {
           occasionally circumstances occur in which toil and pain can procure
         </p>
       </div>
-      <div className=" w-full flex flex-col  h-full  items-start justify-center min-[750px]:flex-row bg-white py-8 gap-8   min-[975px]:gap-14">
-        <div className="flex-1 min-h-[500px] rounded-[20px] overflow-hidden gap-6 w-full min-[750px]:w-1/2">
+      <div className=" w-full flex flex-col  h-full border-4 border-black  items-start justify-center min-[750px]:flex-row bg-white py-8 gap-8   min-[975px]:gap-14">
+        <div className="flex-1 min-h-[300px]: md:min-h-[400px]: lg:min-h-[500px] rounded-[20px] overflow-hidden gap-6 w-full min-[750px]:w-1/2">
           <Image
             src={service5Image}
             alt="service image 3"

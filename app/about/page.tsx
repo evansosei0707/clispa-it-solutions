@@ -17,7 +17,9 @@ export default function page() {
         description="Neque porro quisquam est, qui quia lorem some   golor sit amet, are more consectetur sed"
       />
       <AfterAboutHero />
-      <CountUpStats />
+      <section className=" px-6 md:px-12 lg:px-20 gap-14 lg:gap-20 my-10 w-full flex-col-center">
+        <CountUpStats />
+      </section>
       <WhyChooseUs />
       <ClientReview />
     </main>
