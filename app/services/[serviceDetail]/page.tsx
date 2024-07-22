@@ -1,6 +1,5 @@
-import GlobalHero from "@/app/Components/GlobalHero";
 import React from "react";
-import serviceDetailBanner from "@/public/clispa_service_detail_banner.png";
+import GlobalHero from "@/app/Components/GlobalHero";
 import ServiceBlockOne from "@/app/Components/ServiceBlockOne";
 import ServiceBlockTwo from "@/app/Components/ServiceBlockTwo";
 import ServiceBlockThree from "@/app/Components/ServiceBlockThree";
