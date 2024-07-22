@@ -5,13 +5,76 @@ import HomeServicesSlider from "./HomeServicesSlider";
 import Image from "next/image";
 import dots from "@/public/dots.png";
 import serviceMessage from "@/public/message.png";
-import { urlFor } from "../lib/client";
+import { client, urlFor } from "../lib/client";
+
+async function getContent() {
+  const CONTENT_QUERY = `*[_type == 'service'] {
+  'serviceSlug': slug.current,
+    title,
+  serviceHero {
+    ...,
+    image {
+      asset -> {
+        url
+      }
+    },
+  },
+  serviceBlock1 {
+      ...,
+      firstPara,
+      image1 {
+        asset -> {
+          url
+        }
+      },
+      image2 {
+        asset -> {
+          url
+        }
+      },
+  },
+  serviceBlock2 {
+      ...,
+      image {
+        asset -> {
+          url
+        }
+      },
+      listings[],
+  },
+  serviceBlock3 {
+      ...,
+      image {
+        asset -> {
+          url
+        }
+      },
+      
+  },
+  serviceBlock4 {
+    ...,
+    listings[],
+    image {
+      asset -> {
+        url
+      }
+    },
+  },
+}
+`;
+  const content = await client.fetch(CONTENT_QUERY);
+  return content;
+}
 
 interface HomeServicesProps {
   homeServicesData: homeServicesType;
 }
 
-export default function HomeServices({ homeServicesData }: HomeServicesProps) {
+export default async function HomeServices({
+  homeServicesData,
+}: HomeServicesProps) {
+  const ServicesData: singleServicePageDataTypes[] = await getContent();
+
   return (
     <section className="flex-row-center gap-6 px-5 md:px-8 lg:px-24 w-full pt-12 bg-gradient-to-b from-transparent to-[#f6fdff]">
       <div className=" hidden w-[30%] lg:flex relative">
@@ -52,7 +115,7 @@ export default function HomeServices({ homeServicesData }: HomeServicesProps) {
             </Link>
           </div>
         </div>
-        <HomeServicesSlider />
+        <HomeServicesSlider servicesData={ServicesData} />
       </div>
     </section>
   );

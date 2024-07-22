@@ -5,8 +5,20 @@ import WhiteLogo from "@/public/tech_gigs_white (1).png";
 import { BiLogoFacebook } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
+import { client } from "../lib/client";
 
-export default function Footer() {
+async function getData() {
+  const CONTENT_QUERY = `*[_type == 'service'] {
+    'serviceSlug': slug.current,
+    title,
+  }
+  `;
+  const content = await client.fetch(CONTENT_QUERY);
+  return content;
+}
+
+export default async function Footer() {
+  const allServiceData: singleServicePageDataTypes[] = await getData();
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
 
@@ -79,9 +91,6 @@ export default function Footer() {
               <Link href="/projects" className="text-white ">
                 Projects
               </Link>
-              <Link href="/blog" className="text-white ">
-                Blog Post
-              </Link>
               <Link href="/contact" className="text-white ">
                 Contact
               </Link>
@@ -91,18 +100,18 @@ export default function Footer() {
         <div className="flex flex-col min-[1024px]:flex-row  min-[748px]:w-[40%] w-full text-white  items-start justify-center gap-8">
           <div className="flex flex-col w-full min-[1322px]:w-[50%] justify-center items-start whitespace-nowrap gap-4">
             <p className=" text-[24px] my-[10px] font-bold text-white font-Raj">
-              Support
+              Services
             </p>
             <div className="flex flex-col justify-center font-liv items-start gap-4">
-              <Link href="/about" className="text-white ">
-                Style Guide
-              </Link>
-              <Link href="/services" className="text-white ">
-                Change Log
-              </Link>
-              <Link href="/" className="text-white ">
-                License
-              </Link>
+              {allServiceData.map((item, idx) => (
+                <Link
+                  key={idx}
+                  href={`services/${item.serviceSlug}`}
+                  className="text-white "
+                >
+                  {item.title}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="flex flex-col w-full min-[1322px]:w-[50%] justify-center items-start whitespace-nowrap gap-4">
@@ -110,23 +119,8 @@ export default function Footer() {
               Contact
             </p>
             <div className="flex flex-col justify-center font-liv items-start gap-4">
-              <Link href="/about" className="text-white ">
-                About
-              </Link>
-              <Link href="/services" className="text-white ">
-                Services{" "}
-              </Link>
-              <Link href="/" className="text-white ">
-                Company
-              </Link>
-              <Link href="/projects" className="text-white ">
-                Projects
-              </Link>
-              <Link href="/blog" className="text-white ">
-                Blog Post
-              </Link>
-              <Link href="/contact" className="text-white ">
-                Contact
+              <Link href="/contact#getQuote" className="text-white ">
+                Get Quote
               </Link>
             </div>
           </div>
