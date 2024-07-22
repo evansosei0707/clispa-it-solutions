@@ -2,13 +2,17 @@
 import React from "react";
 import CountUp from "react-countup";
 
-export default function CountUpStats() {
+interface CountUpStatsProps {
+  countUpData: homeStatsType;
+}
+
+export default function CountUpStats({ countUpData }: CountUpStatsProps) {
   return (
     <div className=" flex-row-center w-full mx-auto flex-wrap gap-4">
       <div className=" flex-col-center gap-1 min-[422px]:border-r border-dashed border-secondaryColor flex-1">
         <span className="md:text-[50px] text-[36px] leading-[36px] md:leading-[50px] text-mainColor font-bold font-Raj">
           <CountUp
-            end={95}
+            end={countUpData.happyClients}
             suffix="k"
             delay={0}
             duration={3.75}
@@ -23,7 +27,7 @@ export default function CountUpStats() {
       <div className=" flex-col-center gap-1 min-[422px]:border-r border-dashed border-secondaryColor flex-1">
         <span className="md:text-[50px] text-[36px] leading-[36px] md:leading-[50px] text-mainColor font-bold font-Raj">
           <CountUp
-            end={65}
+            end={countUpData.companies}
             suffix="+"
             delay={0}
             duration={3.75}
@@ -38,7 +42,7 @@ export default function CountUpStats() {
       <div className=" flex-col-center gap-1 flex-1">
         <span className="md:text-[50px] text-[36px] leading-[36px] md:leading-[50px] text-mainColor font-bold font-Raj">
           <CountUp
-            end={362}
+            end={countUpData.projects}
             delay={0}
             duration={3.75}
             start={0}

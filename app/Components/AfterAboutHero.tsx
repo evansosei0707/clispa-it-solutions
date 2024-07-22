@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import afterHeroImage from "@/public/service_person.png";
 import triangle from "@/public/tri-tag.png";
@@ -7,14 +9,23 @@ import message1 from "@/public/message1.png";
 import message2 from "@/public/message2.png";
 
 import { FaRegCircle } from "react-icons/fa";
+import { urlFor } from "../lib/client";
 
-export default function AfterAboutHero() {
+interface AfterAboutHeroProps {
+  afterAboutData: aboutBlockType;
+}
+
+export default function AfterAboutHero({
+  afterAboutData,
+}: AfterAboutHeroProps) {
+  const [switchVision, setSwitchVision] = useState("mission");
+
   return (
     <section className=" flex font-Raj bg-white pb-20 md:px-20 min-[800px]:justify-between flex-col justify-center pt-24 items-center gap-10 md:gap-6 min-[800px]:flex-row w-full px-5 ">
       <div className="relative">
         <div className=" w-full">
           <Image
-            src={afterHeroImage}
+            src={urlFor(afterAboutData.image).url()}
             width={479}
             height={602}
             alt="lady holding laptop"
@@ -32,29 +43,39 @@ export default function AfterAboutHero() {
           Hi <span className=" text-mainColor2">there!</span>
         </h2>
         <p className=" text-[20px] leading-[32px] text-mainColor font-medium font-liv">
-          Over 25 years working in IT services developing software applications
-          and mobile apps for clients all over the world.
+          {afterAboutData.subTitle}
         </p>
         <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
-          We are Optitech provide the best quality It solution neque porro
-          quisquam est qui dolorem ipsum quia golor sit amet, conse ctetur,
-          adipisci velit, sed eligendi optio cumque nihil impedit quo minus id
-          quod maxime placeat facere possim us mentioned most effective
-          technology to solve problem
+          {afterAboutData.para1}
         </p>
         <div className="  flex flex-col-x-start-only">
-          <h3 className=" text-[20px] leading-[32px] font-bold text-mainColor cursor-pointer font-Raj">
-            <span className=" text-mainColor2">Mission</span> / Vision
+          <h3 className=" text-[20px] leading-[32px] font-bold text-mainColor2 cursor-pointer font-Raj">
+            <span
+              onClick={() => setSwitchVision("mission")}
+              className={`${switchVision === "mission" && "text-mainColor"} `}
+            >
+              Mission
+            </span>{" "}
+            /{" "}
+            <span
+              className={`${switchVision === "vision" && "text-mainColor"} `}
+              onClick={() => setSwitchVision("vision")}
+            >
+              Vision
+            </span>
           </h3>
-          <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
-            We set our Mission quisquam est, qui dolorem ipsum quia more than
-            enough impedit quo minus quod maxime facere possimus pleasure
-            rationally encoun ter consequences that are extremely painful. Nor
-            again is there anyone who loves or pursues or desires to obtain
-          </p>
+          {switchVision === "mission" ? (
+            <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
+              {afterAboutData.mission}
+            </p>
+          ) : (
+            <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
+              {afterAboutData.vision}
+            </p>
+          )}
         </div>
         <a
-          href="#"
+          href="/contact#getQuote"
           className="bg-primary-gradient text-white font-semibold py-[10px] px-[27px] text-[20px] leading-[26px] rounded-[25px] tracking-tight"
         >
           Lets talk

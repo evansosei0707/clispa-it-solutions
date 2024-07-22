@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import WhiteLogo from "@/public/whiteLogo.png";
+import WhiteLogo from "@/public/tech_gigs_white (1).png";
 import { BiLogoFacebook } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
@@ -134,7 +134,7 @@ export default function Footer() {
       </div>
       <div className=" bg-[#043676] w-full py-6 flex-row-center mx-auto">
         <p className=" text-white text-[15px] whitespace-nowrap ">
-          Copyright &copy;{currentYear} Clispa. All rights reserved.
+          Copyright &copy;{currentYear} TechGigs. All rights reserved.
         </p>
       </div>
     </footer>

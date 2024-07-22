@@ -117,3 +117,9 @@ export const Blogs = [
     title: "New Technology for System Secutiry to improve secutiry system.",
   },
 ];
+
+export  function formatDateTime(dateTimeString: string) {
+  const options = { year: 'numeric', month: 'short', day: 'numeric' } as const;
+  const formattedDate = new Date(dateTimeString).toLocaleDateString('en-US', options);
+  return formattedDate;
+}

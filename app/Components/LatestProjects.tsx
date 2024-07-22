@@ -4,7 +4,13 @@ import { HiArrowRight } from "react-icons/hi2";
 import Image from "next/image";
 import { services } from "../lib/helper";
 
-export default function LatestProjects() {
+interface LatestProjectsProps {
+  latestProjectsData: latestProjectsType;
+}
+
+export default function LatestProjects({
+  latestProjectsData,
+}: LatestProjectsProps) {
   return (
     <section className=" flex-col-x-start-only w-full px-5 md:px-8 lg:px-24 mx-auto gap-6  bg-gradient-to-b from-transparent to-[#f6fdff]">
       <div className=" flex-col-x-start-only w-full gap-2">
@@ -12,10 +18,7 @@ export default function LatestProjects() {
           Check our <span className=" text-mainColor2">latest</span> projects
         </h2>
         <div className="flex justify-between w-full items-center">
-          <p className=" max-w-[400px]">
-            Neque porro quisquam est, qui dolorem ipsum quiactetur, adipisci
-            velit, sed eligendi option cumque
-          </p>
+          <p className=" max-w-[400px]">{latestProjectsData.para}</p>
           <Link href="/projects" className="">
             <HiArrowRight color="#023e8a" fontSize={35} />
           </Link>

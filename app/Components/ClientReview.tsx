@@ -1,7 +1,25 @@
 import React from "react";
 import ClientReviewSlider from "./ClientReviewSlider";
+import { client } from "../lib/client";
 
-export default function ClientReview() {
+async function getContent() {
+  const CONTENT_QUERY = `*[_type == 'clientReviews'] {
+    ...,
+}
+`;
+  const content = await client.fetch(CONTENT_QUERY);
+  return content;
+}
+
+interface ClientReviewProps {
+  clientTalkData: clientTalkType;
+}
+
+export default async function ClientReview({
+  clientTalkData,
+}: ClientReviewProps) {
+  const clientReviewData: clientReviewType[] = await getContent();
+
   return (
     <section className=" flex-col-center w-full px-5 md:px-8 pt-[100px]  lg:px-24 mx-auto gap-6">
       <div className=" flex-col-center gap-4 md:gap-5 lg:gap-6">
@@ -9,11 +27,10 @@ export default function ClientReview() {
           Client&apos;s <span className=" text-mainColor2">Talk</span>
         </h2>
         <p className=" font-liv text-base sm:w-2/3 md:w-1/2 text-center w-full leading-[24px] text-customBlack font-normal">
-          Neque porro quisquam est, qui dolorem ipsum quia golor sit ametctetur,
-          adipisci velit, sed eligendi optio cumque nihil impedit
+          {clientTalkData.para}
         </p>
       </div>
-      <ClientReviewSlider />
+      <ClientReviewSlider reviewData={clientReviewData} />
     </section>
   );
 }

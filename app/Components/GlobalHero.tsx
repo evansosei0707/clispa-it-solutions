@@ -1,12 +1,13 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { urlFor } from "../lib/client";
 
 interface GlobalHeroProps {
   titleStart: string;
   titleEnd: string;
   description: string;
-  bannerImage: StaticImageData;
+  bannerImage: any;
   parentLink: string;
   childLink?: string;
 }
@@ -49,8 +50,8 @@ export default function GlobalHero({
           {!!childLink && <span> /{childLink}</span>}
         </p>
       </div>
-      <Image
-        src={bannerImage}
+      <img
+        src={urlFor(bannerImage).url()}
         alt="about Banner image"
         className=" w-full h-full object-cover object-center"
       />

@@ -6,14 +6,20 @@ import triangle from "@/public/tri-tag.png";
 import glow from "@/public/glow.png";
 
 import { FaRegCircle } from "react-icons/fa";
+import { urlFor } from "../lib/client";
+import { after } from "node:test";
 
-export default function AfterHero() {
+interface AfterHeroProps {
+  afterHeroData: afterHeroType;
+}
+
+export default function AfterHero({ afterHeroData }: AfterHeroProps) {
   return (
     <section className=" flex font-Raj md:px-20 min-[800px]:justify-between flex-col justify-center pt-24 items-center gap-10 md:gap-6 min-[800px]:flex-row w-full px-5 ">
       <div className="relative">
         <div className=" w-full">
           <Image
-            src={afterHeroImage}
+            src={urlFor(afterHeroData.heroImage).url()}
             width={479}
             height={602}
             alt="lady holding laptop"
@@ -28,41 +34,20 @@ export default function AfterHero() {
       </div>
       <div className=" flex-col-x-start-only w-full min-[800px]:w-1/2 gap-5 flex-wrap">
         <h2 className=" md:text-[42px] text-[30px] leading-[32px] md:leading-[45px] text-mainColor font-bold">
-          Eliminate IT Challenges for your Business
+          {afterHeroData.title}
         </h2>
         <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
-          Neque porro quisquam est, qui dolorem ipsum quia golor sit amet, conse
-          ctetur, adipisci velit, sed eligendi optio cumque nihil impedit quo
-          minus id quod maxime placeat facere possimus mentioned technology
+          {afterHeroData.para}
         </p>
         <ul className="text-customBlack text-base flex-col-x-start-only gap-5 leading-[26px] font-liv font-normal list-none">
-          <div className=" flex-row-x-start-only gap-3">
-            <span className=" flex shrink-0">
-              <FaRegCircle color="#00b4d8" fontSize={17} />
-            </span>
-            <li>
-              Neque porro quisquam est, qui dolorem ipsum quia more than enough
-              impedit quo minus quod maxime facere possimus
-            </li>
-          </div>
-          <div className=" flex-row-x-start-only gap-3">
-            <span className=" flex shrink-0">
-              <FaRegCircle color="#00b4d8" fontSize={17} />
-            </span>
-            <li>
-              Neque porro quisquam est, qui dolorem ipsum quia more than enough
-              impedit quo minus quod maxime facere possimus
-            </li>
-          </div>
-          <div className=" flex-row-x-start-only gap-3">
-            <span className=" flex shrink-0">
-              <FaRegCircle color="#00b4d8" fontSize={17} />
-            </span>{" "}
-            <li>
-              Neque porro quisquam est, qui dolorem ipsum quia more than enough
-              impedit quo minus quod maxime facere possimus
-            </li>
-          </div>
+          {afterHeroData?.listings?.map((item, idx) => (
+            <div key={idx} className=" flex-row-x-start-only gap-3">
+              <span className=" flex shrink-0">
+                <FaRegCircle color="#00b4d8" fontSize={17} />
+              </span>
+              <li>{item}</li>
+            </div>
+          ))}
         </ul>
         <Link
           href="/contact"

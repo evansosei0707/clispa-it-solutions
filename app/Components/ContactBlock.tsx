@@ -1,7 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-export default function ContactBlock() {
+interface ContactBlockProps {
+  blockData: ContactInfoType;
+}
+
+export default function ContactBlock({ blockData }: ContactBlockProps) {
   return (
     <div className="flex-col flex justify-start py-24 min-[800px]:justify-center min-[800px]:items-start items-center min-[800px]:flex-row gap-16 w-full px-4 md:px-10 lg:px-12">
       <div className="min-h-[490px] w-full min-[800px]:w-1/2 rounded-[20px] overflow-hidden">
@@ -16,14 +20,10 @@ export default function ContactBlock() {
       </div>
       <div className=" flex-col flex justify-start items-start gap-6 w-full min-[800px]:w-1/2">
         <h2 className=" md:text-[42px] text-[30px] font-Raj leading-[32px] md:leading-[45px] text-mainColor font-bold">
-          Get in touch
+          {blockData.subject}
         </h2>
         <p className=" text-base leading-[26px] font-liv  text-customBlack">
-          I am expert on Optitech provide the best quality It solution neque
-          porro quisqu qui dolorem ipsum quia golor sit amet, conse ctetur,
-          adipisci velit, sed eligendi optio cumque nihil impedit quo minus id
-          quod maxime placeat most of the a people want to lear IT related
-          solution is very great reason
+          {blockData.para}
         </p>
         <div className=" flex-col-x-start-only gap-4 w-full">
           <h3 className=" text-[24px] leading-[38px] font-bold font-Raj text-mainColor">
@@ -31,27 +31,27 @@ export default function ContactBlock() {
           </h3>
           <div className=" font-liv text-base leading-[26px] text-mainColor2 flex-col-x-start-only">
             <h4>Address</h4>
-            <p className=" text-customBlack">
-              254, North City, Bulex Center, New York
-            </p>
+            <p className=" text-customBlack">{blockData.address}</p>
           </div>
           <div className=" font-liv text-base leading-[26px] text-mainColor2 flex-col-x-start-only ">
             <h4>Phone</h4>
             <p className=" text-customBlack">
-              09 (354) 587 874 or 10 (698) 852 741
+              {blockData.phones.phone1} or{" "}
+              {blockData.phones.phone2 && blockData.phones.phone2}
             </p>
           </div>
           <div className=" font-liv text-base leading-[26px] text-mainColor2 flex-col-x-start-only ">
             <h4>Email</h4>
             <p className=" text-customBlack">
-              info@example.com or info@example.com
+              {blockData.emails.email1} or{" "}
+              {blockData.emails.email2 && blockData.emails.email2}
             </p>
           </div>
           <Link
-            href="/"
+            href={`/${blockData.website}`}
             className=" tracking-widest text-[20px] leading-[32px] font-liv text-mainColor2 hover:text-mainColor transition-colors duration-100"
           >
-            https://techgigs.com
+            {blockData.website}
           </Link>
         </div>
       </div>

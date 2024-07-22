@@ -14,7 +14,11 @@ import { clientFeedbacks } from "../lib/helper";
 import Image from "next/image";
 import QuotationMark from "@/public/quotionMark.png";
 
-const ClientReviewSlider = () => {
+interface ClientReviewSliderProps {
+  reviewData: clientReviewType[];
+}
+
+const ClientReviewSlider = ({ reviewData }: ClientReviewSliderProps) => {
   const slider = React.useRef<Slider | null>(null);
 
   //   function SampleNextArrow(props: any) {
@@ -78,13 +82,13 @@ const ClientReviewSlider = () => {
   return (
     <div className="flex w-full h-full  mb-8 client_talk  mt-0 justify-center flex-col items-center">
       <Slider ref={slider} {...settings} className=" w-full relative ">
-        {clientFeedbacks.map((item, idx) => (
+        {reviewData?.map((item, idx) => (
           <div
             key={idx}
             className=" review_box relative rounded-[20px] flex-col-x-start-only gap-4 overflow-hidden z-10 p-5 py-9  border border-mainColor bg-lightColor"
           >
             <div className=" text-[20px] font-bold font-Raj text-mainColor mb-2">
-              {item.title}
+              {item.subject}
             </div>
             <p className=" text-[#4c4c4c] font-liv mb-2">{item.message}</p>
             <p className=" text-[20px] font-semibold mb-2 text-[#181e23] font-Raj">

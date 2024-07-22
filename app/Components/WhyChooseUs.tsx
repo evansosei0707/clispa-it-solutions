@@ -4,86 +4,76 @@ import ChooseImage from "@/public/chooseUs_image.png";
 import expertTeams from "@/public/expert_team.png";
 import quickAction from "@/public/quick_action.png";
 import latestTech from "@/public/latest_tech.png";
+import { client, urlFor } from "../lib/client";
 
-export default function WhyChooseUs() {
+async function getContent() {
+  const CONTENT_QUERY = `*[_type == 'homePage'][0]{
+ 
+  whyChoose {
+    para,
+    image {
+      asset -> {
+        url
+      }
+    },
+    listings[] {
+      ...,
+      Image {
+        asset -> {
+          url
+        }
+      },
+    },
+  },
+}
+`;
+
+  const content = await client.fetch(CONTENT_QUERY);
+  return content;
+}
+
+interface whyChooseDataType {
+  whyChoose: whyChooseType;
+}
+
+export default async function WhyChooseUs() {
+  const whyChooseUsData: whyChooseDataType = await getContent();
+
   return (
     <section className=" flex md:px-20 font-Raj min-[800px]:justify-between flex-col justify-center pt-24 items-center gap-10 md:gap-6 min-[800px]:flex-row w-full px-5">
       <div className=" flex-col-x-start-only w-full min-[800px]:w-1/2 min-[800px]:pr-12 gap-5 flex-wrap">
         <h2 className=" lg:text-[42px] text-[30px] leading-[32px] sm:text-[34px] sm:leading-[37px] md:text-[38px] md:leading-[41px]  lg:leading-[45px] text-mainColor font-bold">
           Why should people{" "}
-          <span className="text-mainColor2">Choose Optitech,</span> Because...
+          <span className="text-mainColor2">Choose TechGigs,</span> Because...
         </h2>
         <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
-          Neque porro quisquam est, qui dolorem ipsum quia golor sit amet, conse
-          ctetur, adipisci velit, sed eligendi optio cumque nihil impedit quo
-          minus id quod maxime placeat facere possimus mentioned technology
+          {whyChooseUsData.whyChoose.para}
         </p>
         <ul className="text-customBlack text-base flex-col-x-start-only gap-5 leading-[26px]  font-normal list-none">
-          <div className=" flex justify-start items-center gap-6">
-            <div className=" w-max flex shrink-0">
-              <Image
-                src={expertTeams}
-                alt="expert team"
-                width={62}
-                height={62}
-              />
+          {whyChooseUsData.whyChoose.listings.map((item, idx) => (
+            <div key={idx} className=" flex justify-start items-center gap-6">
+              <div className=" w-max flex shrink-0">
+                <Image
+                  src={urlFor(item.Image).url()}
+                  alt="expert team"
+                  width={62}
+                  height={62}
+                />
+              </div>
+              <div className=" flex flex-col justify-start items-start">
+                <p className=" text-[24px] leading-[38px] font-bold text-mainColor">
+                  {item.title}
+                </p>
+                <p className="font-liv text-base leading-[26px]">{item.para}</p>
+              </div>
             </div>
-            <div className=" flex flex-col justify-start items-start">
-              <p className=" text-[24px] leading-[38px] font-bold text-mainColor">
-                Expert Team
-              </p>
-              <p className="font-liv text-base leading-[26px]">
-                Neque porro quisquam est, qui dolorem ipsum quia more than
-                enough impedit quo minus quod maxime facere possimus
-              </p>
-            </div>
-          </div>
-
-          <div className=" flex justify-start items-center gap-6">
-            <div className=" w-max flex shrink-0">
-              <Image
-                src={quickAction}
-                alt="quick action"
-                width={62}
-                height={62}
-              />
-            </div>
-            <div className=" flex flex-col justify-start items-start">
-              <p className=" text-[24px] leading-[38px] font-bold text-mainColor">
-                Quick Action
-              </p>
-              <p className="font-liv text-base leading-[26px]">
-                Neque porro quisquam est, qui dolorem ipsum quia more than
-                enough impedit quo minus quod maxime facere possimus
-              </p>
-            </div>
-          </div>
-
-          <div className=" flex justify-start items-center gap-6">
-            <div className=" w-max flex shrink-0">
-              <Image
-                src={latestTech}
-                alt="expert team"
-                width={62}
-                height={62}
-              />
-            </div>
-            <div className=" flex flex-col justify-start items-start">
-              <p className=" text-[24px] leading-[38px] font-bold text-mainColor">
-                Latest Technology
-              </p>
-              <p className="font-liv text-base leading-[26px]">
-                Neque porro quisquam est, qui dolorem ipsum quia more than
-                enough impedit quo minus quod maxime facere possimus
-              </p>
-            </div>
-          </div>
+          ))}
         </ul>
       </div>
       <div className="relative">
         <div className=" w-full">
           <Image
-            src={ChooseImage}
+            src={urlFor(whyChooseUsData.whyChoose.image).url()}
             width={535}
             height={712}
             alt="Man pointing to the reason why you should choose us"

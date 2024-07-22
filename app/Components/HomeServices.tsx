@@ -3,17 +3,21 @@ import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi2";
 import HomeServicesSlider from "./HomeServicesSlider";
 import Image from "next/image";
-import serviceImage from "@/public/service_person.png";
 import dots from "@/public/dots.png";
 import serviceMessage from "@/public/message.png";
+import { urlFor } from "../lib/client";
 
-export default function HomeServices() {
+interface HomeServicesProps {
+  homeServicesData: homeServicesType;
+}
+
+export default function HomeServices({ homeServicesData }: HomeServicesProps) {
   return (
     <section className="flex-row-center gap-6 px-5 md:px-8 lg:px-24 w-full pt-12 bg-gradient-to-b from-transparent to-[#f6fdff]">
       <div className=" hidden w-[30%] lg:flex relative">
         <div className=" w-max h-max">
           <Image
-            src={serviceImage}
+            src={urlFor(homeServicesData.image).url()}
             width={380}
             height={457}
             alt="Service Image banner"
@@ -24,7 +28,7 @@ export default function HomeServices() {
             src={dots}
             width={215}
             height={204}
-            alt="dots imagees behind a person"
+            alt="dots images behind a person"
           />
         </div>
         <div className=" w-max h-max absolute -left-[8%] top-0 right-auto bottom-auto -z-10">
@@ -42,10 +46,7 @@ export default function HomeServices() {
             Services <span className=" text-mainColor2">that we</span> provide
           </h2>
           <div className="flex justify-between w-full items-center">
-            <p className=" max-w-[400px]">
-              Neque porro quisquam est, qui dolorem ipsum quiactetur, adipisci
-              velit, sed eligendi option cumque
-            </p>
+            <p className=" max-w-[400px]">{homeServicesData.para}</p>
             <Link href="/services" className="">
               <HiArrowRight color="#023e8a" fontSize={35} />
             </Link>

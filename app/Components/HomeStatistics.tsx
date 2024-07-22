@@ -5,12 +5,17 @@ import BrainStorm from "@/public/brainstorm.png";
 import Solution from "@/public/solution.png";
 import ProjectDone from "@/public/project_done.png";
 import CountUpStats from "./CountUp";
+import { urlFor } from "../lib/client";
 
-export default function HomeStatistics() {
+interface HomeStatisticsProps {
+  homeStatsData: homePageTypes;
+}
+
+export default function HomeStatistics({ homeStatsData }: HomeStatisticsProps) {
   return (
     <section className=" px-6 md:px-12 lg:px-20 gap-14 lg:gap-20 my-20 w-full flex-col-center">
       {/* Statistics Here! */}
-      <CountUpStats />
+      <CountUpStats countUpData={homeStatsData.homeStats} />
       {/* How we work */}
       <div className=" flex-col-center gap-9 w-full">
         <div className="flex-col-center gap-6 flex-wrap">
@@ -18,87 +23,33 @@ export default function HomeStatistics() {
             How <span className=" text-mainColor2">we</span> work
           </h2>
           <p className=" font-liv text-base sm:w-2/3 md:w-1/2 text-center w-full leading-[24px] text-customBlack font-normal">
-            Neque porro quisquam est, qui dolorem ipsum quia golor sit
-            ametctetur, adipisci velit, sed eligendi optio cumque nihil impedit
+            {homeStatsData.howWeWork.para}
           </p>
         </div>
         <div className=" grid w-full grid-cols-1 place-items-center gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div className=" relative overflow-hidden w-full px-[30px] hover:bg-lightColor single_process pt-[50px] pb-[25px] rounded-[15px] transition-all duration-300 ease-linear text-center ">
-            <div className=" flex items-end justify-center min-h-[127px] text-center">
-              <Image
-                alt="Meet the client"
-                src={MeetClient}
-                width={129}
-                height={129}
-                className=" max-w-[100%]"
-              />
+          {homeStatsData.howWeWork.process.map((item, idx) => (
+            <div
+              key={idx}
+              className=" relative overflow-hidden w-full px-[30px] hover:bg-lightColor single_process pt-[50px] pb-[25px] rounded-[15px] transition-all duration-300 ease-linear text-center "
+            >
+              <div className=" flex items-end justify-center min-h-[127px] text-center">
+                <Image
+                  alt="Meet the client"
+                  src={urlFor(item.Image).url()}
+                  width={129}
+                  height={129}
+                  className=" max-w-[100%]"
+                />
+              </div>
+              <div className=" text-mainColor single_process_title text-[24px] leading-[1.3]  font-Raj mt-[7px] font-bold">
+                {item.title}
+              </div>
+              <div className=" opacity-30 absolute left-[25px] top-[20px] right-auto bottom-auto font-Raj leading-4 font-bold text-[40px] text-mainColor2 single_process_number">
+                0{idx + 1}
+              </div>
+              <div className=" transition-all duration-300 bottom-line absolute left-0 right-0 bottom-0 top-auto w-full h-[8px] bg-mainColor"></div>
             </div>
-            <div className=" text-mainColor single_process_title text-[24px] leading-[1.3]  font-Raj mt-[7px] font-bold">
-              Meet the Client
-            </div>
-            <div className=" opacity-30 absolute left-[25px] top-[20px] right-auto bottom-auto font-Raj leading-4 font-bold text-[40px] text-mainColor2 single_process_number">
-              01
-            </div>
-            <div className=" transition-all duration-300 bottom-line absolute left-0 right-0 bottom-0 top-auto w-full h-[8px] bg-mainColor"></div>
-          </div>
-          {/*This is the end of 1 */}
-          <div className=" relative overflow-hidden w-full px-[30px] hover:bg-lightColor single_process pt-[50px] pb-[25px] rounded-[15px] transition-all duration-300 ease-linear text-center ">
-            <div className=" flex items-end justify-center min-h-[127px] text-center">
-              <Image
-                alt="Brainstorming"
-                src={BrainStorm}
-                width={129}
-                height={129}
-                className=" max-w-[100%]"
-              />
-            </div>
-            <div className=" text-mainColor single_process_title text-[24px] leading-[1.3]  font-Raj mt-[7px] font-bold">
-              Brainstorming
-            </div>
-            <div className=" opacity-30 absolute left-[25px] top-[20px] right-auto bottom-auto font-Raj leading-4 font-bold text-[40px] text-mainColor2 single_process_number">
-              02
-            </div>
-            <div className=" transition-all duration-300 bottom-line absolute left-0 right-0 bottom-0 top-auto w-full h-[8px] bg-mainColor"></div>
-          </div>
-          {/*This is the end of 1 */}
-          <div className=" relative overflow-hidden w-full px-[30px] hover:bg-lightColor single_process pt-[50px] pb-[25px] rounded-[15px] transition-all duration-300 ease-linear text-center ">
-            <div className=" flex items-end justify-center min-h-[127px] text-center">
-              <Image
-                alt="solution"
-                src={Solution}
-                width={87}
-                height={127}
-                className=" max-w-[100%]"
-              />
-            </div>
-            <div className=" text-mainColor single_process_title text-[24px] leading-[1.3]  font-Raj mt-[7px] font-bold">
-              Solution
-            </div>
-            <div className=" opacity-30 absolute left-[25px] top-[20px] right-auto bottom-auto font-Raj leading-4 font-bold text-[40px] text-mainColor2 single_process_number">
-              03
-            </div>
-            <div className=" transition-all duration-300 bottom-line absolute left-0 right-0 bottom-0 top-auto w-full h-[8px] bg-mainColor"></div>
-          </div>
-          {/*This is the end of 1 */}
-          <div className=" relative overflow-hidden w-full px-[30px] hover:bg-lightColor single_process pt-[50px] pb-[25px] rounded-[15px] transition-all duration-300 ease-linear text-center ">
-            <div className=" flex items-end justify-center w-full min-h-[127px] text-center">
-              <Image
-                alt="project done"
-                src={ProjectDone}
-                width={129}
-                height={129}
-                className=" max-w-[100%]"
-              />
-            </div>
-            <div className=" text-mainColor single_process_title text-[24px] leading-[1.3]  font-Raj mt-[7px] font-bold">
-              Project Done
-            </div>
-            <div className=" opacity-30 absolute left-[25px] top-[20px] right-auto bottom-auto font-Raj leading-4 font-bold text-[40px] text-mainColor2 single_process_number">
-              04
-            </div>
-            <div className=" transition-all duration-300 bottom-line absolute left-0 right-0 bottom-0 top-auto w-full h-[8px] bg-mainColor"></div>
-          </div>
-          {/*This is the end of 1 */}
+          ))}
         </div>
       </div>
     </section>
