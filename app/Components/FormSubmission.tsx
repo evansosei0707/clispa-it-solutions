@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { client } from "../lib/client";
 
 export default function FormSubmission() {
   const [formData, setFormData] = useState({
@@ -23,22 +22,22 @@ export default function FormSubmission() {
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
-      _type: "formSubmission",
-      name,
-      email,
-      message,
-      phone,
-    };
+    // const contact = {
+    //   _type: "formSubmission",
+    //   name,
+    //   email,
+    //   message,
+    //   phone,
+    // };
 
-    client
-      .create(contact)
-      .then((data) => {
-        setLoading(false);
-        console.log(data);
-        setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
+    // client
+    //   .create(contact)
+    //   .then((data) => {
+    //     setLoading(false);
+    //     console.log(data);
+    //     setIsFormSubmitted(true);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (

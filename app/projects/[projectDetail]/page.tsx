@@ -1,10 +1,8 @@
 import React from "react";
-import projectDetailBanner from "@/public/projects_banner.png";
 import GlobalHero from "@/app/Components/GlobalHero";
 import ProjectsBlockOne from "@/app/Components/ProjectsBlockOne";
 import ProjectsBlockTwo from "@/app/Components/ProjectsBlockTwo";
 import ProjectsBlockThree from "@/app/Components/ProjectsBlockThree";
-import ClientReview from "@/app/Components/ClientReview";
 import { client } from "@/app/lib/client";
 import ClientReviewFragment from "@/app/Components/ClientReviewFragment";
 import { Metadata } from "next";

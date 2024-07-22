@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HomeHero from "./Components/HomeHero";
 import AfterHero from "./Components/AfterHero";
 import WhyChooseUs from "./Components/WhyChooseUs";
