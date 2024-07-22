@@ -115,7 +115,7 @@ export async function generateStaticParams() {
 
   return allProjectsData.map((item) => ({
     params: {
-      serviceDetail: item.projectSlug,
+      projectDetail: item.projectSlug,
     },
   }));
 }

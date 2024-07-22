@@ -20,22 +20,25 @@ export default function FormSubmission() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setLoading(true);
-    const response = await fetch("/api/submitForm", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, phone, email, message }),
-    });
-    console.log(response);
-    if (response.ok) {
-      setIsFormSubmitted(true);
-      setLoading(false);
-    } else {
-      console.log(response);
-    }
+
+    const contact = {
+      _type: "formSubmission",
+      name,
+      email,
+      message,
+      phone,
+    };
+
+    client
+      .create(contact)
+      .then((data) => {
+        setLoading(false);
+        console.log(data);
+        setIsFormSubmitted(true);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
