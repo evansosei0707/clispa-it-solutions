@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "@/public/tech_gigs (1).png";
+import Logo from "@/public/original_logo.png";
 import { navLinks } from "../lib/helper";
 import { CgMenuLeft } from "react-icons/cg";
 import { usePathname } from "next/navigation";

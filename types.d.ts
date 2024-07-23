@@ -197,10 +197,18 @@ type ContactHeroType = {
   briefDescrip: string;
 };
 
+type socialsType = {
+  twitter: url;
+  linkedIn: url;
+  instagram: url;
+  tikTok: url;
+};
+
 type ContactInfoType = {
-  website: Url;
+  website: url;
   emails: { email1: string; email2: string };
   phones: { phone1: number; phone2: number };
+  socials: socialsType;
   address: string;
   subject: string;
   para: string;

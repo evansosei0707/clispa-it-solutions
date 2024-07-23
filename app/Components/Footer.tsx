@@ -1,11 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import WhiteLogo from "@/public/tech_gigs_white (1).png";
-import { BiLogoFacebook } from "react-icons/bi";
+import WhiteLogo from "@/public/original_white_logo.png";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { client } from "../lib/client";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+// import { ContactPageTypes, singleServicePageDataTypes } from "@/types"
 
 async function getData() {
   const CONTENT_QUERY = `*[_type == 'service'] {
@@ -17,10 +19,33 @@ async function getData() {
   return content;
 }
 
+async function getSocialData() {
+  const CONTENT_QUERY = `*[_type == 'contactUs'][0] {
+  contactInfo {
+    subject,
+    phones,
+    emails,
+    website,
+    socials,
+    address,
+    para,
+  }
+}
+  `;
+  const content = await client.fetch(CONTENT_QUERY);
+  return content;
+}
+
 export default async function Footer() {
-  const allServiceData: singleServicePageDataTypes[] = await getData();
+  const allServices: singleServicePageDataTypes[] = await getData();
+  const socialsData: ContactPageTypes = await getSocialData();
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
+
+  const [allServiceData, socialsMediaData] = await Promise.all([
+    allServices,
+    socialsData,
+  ]);
 
   return (
     <footer className="w-full flex flex-col items-center justify-center gap-6 py-14 pb-0 md:pt-24 bg-mainColor text-white">
@@ -42,36 +67,54 @@ export default async function Footer() {
               quo minus quod and maxime
             </p>
             <div className="flex items-center gap-[20px] justify-start">
-              <a
-                href="#"
-                rel="no-referrer"
-                className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
-              >
-                <BiLogoFacebook
-                  fontSize={20}
-                  className=" text-white duration-75 transition-colors"
-                />
-              </a>
-              <a
-                href="#"
-                rel="no-referrer"
-                className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
-              >
-                <FaXTwitter
-                  fontSize={20}
-                  className=" text-white duration-75 transition-colors"
-                />
-              </a>
-              <a
-                href="#"
-                rel="no-referrer"
-                className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
-              >
-                <IoLogoInstagram
-                  fontSize={20}
-                  className=" text-white duration-75 transition-colors"
-                />
-              </a>
+              {socialsMediaData.contactInfo.socials?.twitter && (
+                <a
+                  href="#"
+                  rel="no-referrer"
+                  className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
+                >
+                  <FaXTwitter
+                    fontSize={20}
+                    className=" text-white duration-75 transition-colors"
+                  />
+                </a>
+              )}
+              {socialsMediaData.contactInfo.socials?.instagram && (
+                <a
+                  href="#"
+                  rel="no-referrer"
+                  className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
+                >
+                  <IoLogoInstagram
+                    fontSize={20}
+                    className=" text-white duration-75 transition-colors"
+                  />
+                </a>
+              )}
+              {socialsMediaData.contactInfo.socials?.linkedIn && (
+                <a
+                  href="#"
+                  rel="no-referrer"
+                  className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
+                >
+                  <FaLinkedinIn
+                    fontSize={20}
+                    className=" text-white duration-75 transition-colors"
+                  />
+                </a>
+              )}
+              {socialsMediaData.contactInfo.socials?.tikTok && (
+                <a
+                  href="#"
+                  rel="no-referrer"
+                  className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
+                >
+                  <FaTiktok
+                    fontSize={20}
+                    className=" text-white duration-75 transition-colors"
+                  />
+                </a>
+              )}
             </div>
           </div>
           <div className="flex flex-col w-full min-[1322px]:w-[40%] justify-center items-start whitespace-nowrap gap-4">
