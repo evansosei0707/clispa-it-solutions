@@ -42,22 +42,21 @@ export default function HomeHero({ homeHeroData }: HomeHeroProps) {
         </div>
       </div>
       <div className="relative">
-        <div className=" w-full">
-          <Image
+        <div className=" w-full rounded-md overflow-hidden max-h-[600px]">
+          <img
             src={urlFor(homeHeroData.heroImage).url()}
-            width={750}
-            height={750}
+            className=" w-full h-full object-cover"
             alt="Tech Gigs Hero image"
           />
         </div>
-        <div className=" absolute bottom-10 left-0 sm:left-5 md:left-12">
+        {/* <div className=" absolute bottom-10 left-0 sm:left-5 md:left-12">
           <Image
             src={arrowUnderHero}
             width={110}
             height={94}
             alt="Arrow Hero Image"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );

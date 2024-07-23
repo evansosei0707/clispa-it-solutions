@@ -70,7 +70,7 @@ export default async function WhyChooseUs() {
           ))}
         </ul>
       </div>
-      <div className="relative">
+      <div className="relative w-full min-[800px]:w-1/2">
         <div className=" w-full max-h-[630px] rounded-md overflow-hidden">
           <img
             src={urlFor(whyChooseUsData.whyChoose.image).url()}

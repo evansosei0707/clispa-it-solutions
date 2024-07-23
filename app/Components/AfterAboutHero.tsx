@@ -31,12 +31,12 @@ export default function AfterAboutHero({
             alt="lady holding laptop"
           />
         </div>
-        <div className=" absolute z-10 right-0 top-6">
+        {/* <div className=" absolute z-10 right-0 top-6">
           <Image src={message1} width={136} height={114} alt="glow" />
         </div>
         <div className=" absolute z-10 left-3 max-[600px]:-left-2 top-2 ">
           <Image src={message2} width={123} height={107} alt="triangle tag" />
-        </div>
+        </div> */}
       </div>
       <div className=" flex-col-x-start-only w-full min-[800px]:w-1/2 gap-5 flex-wrap">
         <h2 className=" md:text-[42px] text-[30px] leading-[32px] md:leading-[45px] text-mainColor font-bold">
