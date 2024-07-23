@@ -118,3 +118,5 @@ export default async function LatestProjects({
     </section>
   );
 }
+
+export const revalidate = 10;

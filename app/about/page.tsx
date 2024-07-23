@@ -60,3 +60,5 @@ export default async function page() {
     </main>
   );
 }
+
+export const revalidate = 10;

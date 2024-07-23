@@ -113,3 +113,5 @@ export default async function ServicesList({
     </div>
   );
 }
+
+export const revalidate = 10;

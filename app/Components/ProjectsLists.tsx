@@ -102,3 +102,5 @@ export default async function ProjectsLists() {
     </section>
   );
 }
+
+export const revalidate = 10;

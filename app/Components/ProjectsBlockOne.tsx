@@ -1,6 +1,5 @@
 import React from "react";
 import mainProjectImage from "@/public/clispa_services_banner.jpg";
-import Image from "next/image";
 import { urlFor } from "../lib/client";
 import { formatDateTime } from "../lib/helper";
 
