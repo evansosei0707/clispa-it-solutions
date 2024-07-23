@@ -78,30 +78,29 @@ export default async function HomeServices({
   return (
     <section className="flex-row-center gap-6 px-5 md:px-8 lg:px-24 w-full pt-12 bg-gradient-to-b from-transparent to-[#f6fdff]">
       <div className=" hidden w-[30%] lg:flex relative">
-        <div className=" w-max h-max">
-          <Image
+        <div className=" w-full h-full max-h-[460px]">
+          <img
             src={urlFor(homeServicesData.image).url()}
-            width={380}
-            height={457}
+            className=" w-full h-full object-cover"
             alt="Service Image banner"
           />
         </div>
-        <div className=" w-max h-max  absolute left-[100px] top-[5%] right-auto bottom-auto -z-10">
+        {/* <div className=" w-max h-max  absolute left-[100px] top-[5%] right-auto bottom-auto -z-10">
           <Image
             src={dots}
             width={215}
             height={204}
             alt="dots images behind a person"
           />
-        </div>
-        <div className=" w-max h-max absolute -left-[8%] top-0 right-auto bottom-auto -z-10">
+        </div> */}
+        {/* <div className=" w-max h-max absolute -left-[8%] top-0 right-auto bottom-auto -z-10">
           <Image
             src={serviceMessage}
             width={136}
             height={114}
             alt="message image"
           />
-        </div>
+        </div> */}
       </div>
       <div className=" flex-col-x-start-only w-full lg:w-[70%] gap-6">
         <div className=" flex-col-x-start-only w-full gap-2">

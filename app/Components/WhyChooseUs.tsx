@@ -71,7 +71,14 @@ export default async function WhyChooseUs() {
         </ul>
       </div>
       <div className="relative">
-        <div className=" w-full">
+        <div className=" w-full max-h-[630px] rounded-md overflow-hidden">
+          <img
+            src={urlFor(whyChooseUsData.whyChoose.image).url()}
+            className=" w-full h-full object-cover"
+            alt="TechGigs home page image"
+          />
+        </div>
+        {/* <div className=" w-full">
           <Image
             src={urlFor(whyChooseUsData.whyChoose.image).url()}
             width={535}
@@ -84,7 +91,7 @@ export default async function WhyChooseUs() {
           <div className=" absolute top-auto right-2 sm:-right-4 left-auto text-[20px] text-mainColor z-10 max-w-[220px] leading-6 font-semibold  bottom-[261px] font-raj py-[20px] pr-[30px] pl-[25px] rounded-[15px] float-text bg-[#ffffffdb]">
             <p>Get Perfect Solution for your Problems</p>
           </div>
-        </div>
+        </div> */}
         {/* <div className=" absolute z-10 right-0 top-16">
         <Image src={glow} width={175} height={248} alt="glow" />
       </div>
