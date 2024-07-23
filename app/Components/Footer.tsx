@@ -69,7 +69,7 @@ export default async function Footer() {
             <div className="flex items-center gap-[20px] justify-start">
               {socialsMediaData.contactInfo.socials?.twitter && (
                 <a
-                  href="#"
+                  href={socialsMediaData.contactInfo.socials?.twitter}
                   rel="no-referrer"
                   className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
                 >
@@ -81,7 +81,7 @@ export default async function Footer() {
               )}
               {socialsMediaData.contactInfo.socials?.instagram && (
                 <a
-                  href="#"
+                  href={socialsMediaData.contactInfo.socials?.instagram}
                   rel="no-referrer"
                   className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
                 >
@@ -93,7 +93,7 @@ export default async function Footer() {
               )}
               {socialsMediaData.contactInfo.socials?.linkedIn && (
                 <a
-                  href="#"
+                  href={socialsMediaData.contactInfo.socials?.linkedIn}
                   rel="no-referrer"
                   className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
                 >
@@ -105,7 +105,7 @@ export default async function Footer() {
               )}
               {socialsMediaData.contactInfo.socials?.tikTok && (
                 <a
-                  href="#"
+                  href={socialsMediaData.contactInfo.socials?.tikTok}
                   rel="no-referrer"
                   className=" w-[36px] flex-row-center rounded-full border border-[#48cae4]  h-[36px]"
                 >

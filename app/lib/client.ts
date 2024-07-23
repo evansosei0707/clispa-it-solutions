@@ -6,7 +6,7 @@ export const client = createClient({
   dataset: `${process.env.NEXT_PUBLIC_DATASET}`,
   apiVersion: "2024-07-20",
   // Set to `true` for production environments
-  useCdn: false,
+  useCdn: true,
   token: `${process.env.NEXT_PUBLIC_API_TOKEN}`,
 });
 
