@@ -17,7 +17,7 @@ export default function AfterHero({ afterHeroData }: AfterHeroProps) {
   return (
     <section className=" flex font-Raj md:px-[70px] min-[800px]:justify-between  flex-col justify-center pt-24 items-center gap-10 md:gap-6 min-[800px]:flex-row w-full px-5 ">
       <div className="relative w-full min-[800px]:w-1/2 flex min-[800px]:marker:justify-start">
-        <div className=" w-full max-h-[500px] rounded-md  overflow-hidden">
+        <div className=" w-full max-h-[600px] rounded-md  overflow-hidden">
           <img
             src={urlFor(afterHeroData.heroImage).url()}
             className=" w-full h-full object-cover"

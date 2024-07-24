@@ -78,7 +78,7 @@ export default function HomeServicesSlider({
               >
                 {item.title}
               </Link>
-              <p className=" font-liv text-center text-base leading-[26px] font-normal text-customBlack">
+              <p className=" font-liv text-center line-clamp-4 text-base leading-[26px] font-normal text-customBlack">
                 {item.serviceHero.briefDescrip}
               </p>
             </div>
