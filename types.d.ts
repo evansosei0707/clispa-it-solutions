@@ -217,6 +217,7 @@ type ContactInfoType = {
 type ContactPageTypes = {
   contactHero: ContactHeroType;
   contactInfo: ContactInfoType;
+  footerPara: string;
 };
 
 type listingsType = {

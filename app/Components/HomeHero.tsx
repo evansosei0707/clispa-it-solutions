@@ -12,7 +12,7 @@ interface HomeHeroProps {
 
 export default function HomeHero({ homeHeroData }: HomeHeroProps) {
   return (
-    <section className=" flex md:px-14 font-Raj min-[800px]:justify-between flex-col justify-center pt-12 items-center gap-6 min-[800px]:flex-row w-full px-5 ">
+    <section className=" flex md:px-14 font-Raj min-[800px]:justify-between flex-col justify-center pt-12 items-center gap-8 min-[800px]:flex-row w-full px-5 md:gap-10 ">
       <div className=" flex-row-x-start-only w-full min-[800px]:w-1/2 gap-5 flex-wrap">
         <h1 className=" md:text-[72px] text-[40px] leading-[45px] font-bold text-mainColor md:leading-[81px]">
           IT <span className=" underline text-mainColor2">Solutions</span> for
@@ -41,8 +41,8 @@ export default function HomeHero({ homeHeroData }: HomeHeroProps) {
           </div>
         </div>
       </div>
-      <div className="relative">
-        <div className=" w-full rounded-md overflow-hidden max-h-[600px]">
+      <div className="relative  min-[800px]:w-1/2 w-full">
+        <div className=" w-full rounded-lg overflow-hidden max-h-[450px] md:max-h-[600px]">
           <img
             src={urlFor(homeHeroData.heroImage).url()}
             className=" w-full h-full object-cover"

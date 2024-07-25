@@ -29,7 +29,8 @@ async function getSocialData() {
     socials,
     address,
     para,
-  }
+  },
+  footerPara,
 }
   `;
   const content = await client.fetch(CONTENT_QUERY);
@@ -63,8 +64,7 @@ export default async function Footer() {
               </Link>
             </div>
             <p className=" text-white mb-[25px] font-liv ">
-              Neque porro quisquam est qui most dolorem quia enough impedit same
-              quo minus quod and maxime
+              {socialsMediaData.footerPara}
             </p>
             <div className="flex items-center gap-[20px] justify-start">
               {socialsMediaData.contactInfo.socials?.twitter && (
