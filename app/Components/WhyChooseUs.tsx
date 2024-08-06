@@ -43,7 +43,7 @@ export default async function WhyChooseUs() {
     <section className=" flex md:px-20 font-Raj min-[800px]:justify-between flex-col justify-center pt-24 items-center gap-10 md:gap-6 min-[800px]:flex-row w-full px-5">
       <div className=" flex-col-x-start-only w-full min-[800px]:w-1/2 min-[800px]:pr-12 gap-5 flex-wrap">
         <h2 className=" lg:text-[42px] text-[30px] leading-[32px] sm:text-[34px] sm:leading-[37px] md:text-[38px] md:leading-[41px]  lg:leading-[45px] text-mainColor font-bold">
-          Why Choose <span className="text-mainColor2">TechGigs</span>
+          Why Choose <span className="text-mainColor2">TechGigs?</span>
         </h2>
         <p className=" text-customBlack text-base leading-[26px] font-liv font-normal">
           {whyChooseUsData.whyChoose.para}
